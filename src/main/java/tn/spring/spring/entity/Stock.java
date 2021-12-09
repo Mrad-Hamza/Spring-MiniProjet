@@ -1,5 +1,6 @@
 package tn.spring.spring.entity;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -33,7 +34,12 @@ public class Stock implements Serializable {
 	private int qteMin;
 	@NonNull
 	private String libelleStock;
-	
+	@NonNull
+	private Date createdDate;
+	@NonNull
+	private Date updatedDate;
+	@NonNull
+	private Boolean state;
 	@JsonIgnore
 	@OneToMany(mappedBy="stock",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Set<Produit> produits;
