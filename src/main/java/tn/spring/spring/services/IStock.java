@@ -18,6 +18,8 @@ public interface IStock {
 	@Transactional
 	void deleteStock(Long id);
 
+	Stock  removeStock(Stock s);
+	
 	Stock updateStock(Stock s);
 	
 	Stock updateStatusStock(Stock s);

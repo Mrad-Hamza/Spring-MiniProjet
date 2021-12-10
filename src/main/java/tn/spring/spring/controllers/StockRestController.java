@@ -59,31 +59,45 @@ public class StockRestController {
 	}
 
 	// http://localhost:8098/SpringMVC/servlet/add-stock
-	@PostMapping("/add-stock")
+	@PostMapping("/addStock")
 	@ResponseBody
+	@CrossOrigin
 	public Stock addStock(@RequestBody Stock s) {
 		Stock stock = stockService.addStock(s);
 		return stock;
 	}
 
 	// http://localhost:8098/SpringMVC/servlet/update-stock/5
-	@PutMapping("update-stock/{id}")
+	@PutMapping("updateStock/{id}")
 	@ResponseBody
+	@CrossOrigin
 	public Stock updateStock(@PathVariable("id") Long id, @RequestBody Stock s) {
 		s.setIdStock(id);
 		return stockService.updateStock(s);
 	}
 
-	//http://localhost:8098/SpringMVC/servlet/delete-stock/7
-	@DeleteMapping("delete-stock/{id}")
+	// http://localhost:8098/SpringMVC/servlet/remove-stock/5
+	@PutMapping("removeStock/{id}")
 	@ResponseBody
+	@CrossOrigin
+	public Stock removeStock(@PathVariable("id") Long id, @RequestBody Stock s) {
+		s.setIdStock(id);
+		return stockService.removeStock(s);
+	}
+
+	//http://localhost:8098/SpringMVC/servlet/delete-stock/7
+	@DeleteMapping("deleteStock/{id}")
+	@ResponseBody
+	@CrossOrigin
 	public void deleteStock(@PathVariable("id") Long id) {
 		stockService.deleteStock(id);
 	}
 
+
 	//http://localhost:8098/SpringMVC/servlet/search-stock/aaa	
 	@GetMapping("/search-stock/{libelle}")
 	@ResponseBody
+	@CrossOrigin
 	public Stock searchStockByName(@PathVariable("libelle") String libelle) {
 		Stock s = stockService.searchStockByName(libelle);
 		return s;
@@ -92,6 +106,7 @@ public class StockRestController {
 	//http://localhost:8098/SpringMVC/servlet/search-stock-ByQte/2000	
 	@GetMapping("/search-stock-By-Qte/{qte}")
 	@ResponseBody
+	@CrossOrigin
 	public List<Stock> searchStockByQte(@PathVariable("qte") int qte) {
 		List<Stock> stocks = stockService.searchStockByQte(qte);
 		return stocks;
@@ -100,6 +115,7 @@ public class StockRestController {
 	//http://localhost:8098/SpringMVC/servlet/search-stock-By-Status	
 	@GetMapping("/search-stock-By-Status")
 	@ResponseBody
+	@CrossOrigin
 	public List<Stock> getStockByStatus() {
 		List<Stock> stocks = stockService.getStockByStatus();
 		return stocks;
@@ -108,6 +124,7 @@ public class StockRestController {
 	//http://localhost:8098/SpringMVC/servlet/retrieveStatusStock	
 	@GetMapping("/retrieveStatusStock")
 	@ResponseBody
+	@CrossOrigin
 	public String retrieveStatusStock() {
 		return stockService.retrieveStatusStock();
 

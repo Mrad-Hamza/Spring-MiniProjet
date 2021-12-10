@@ -1,6 +1,7 @@
 package tn.spring.spring.services;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import tn.spring.spring.entity.Stock;
 import tn.spring.spring.repository.RayonRepository;
 import tn.spring.spring.repository.StockRepository;
+import java.time.ZoneId;
 
 @Service
 public class StockServiceImpl implements IStock{
@@ -36,6 +38,11 @@ public class StockServiceImpl implements IStock{
 
 	@Override
 	public Stock addStock(Stock s) {
+		s.setState(true);
+		LocalDate localDate = LocalDate.now();
+		s.setCreatedDate(Date.from(localDate.atStartOfDay()
+			      .atZone(ZoneId.systemDefault())
+			      .toInstant()));
 		// TODO Auto-generated method stub
 		return stockRepository.save(s);
 	}
@@ -43,6 +50,13 @@ public class StockServiceImpl implements IStock{
 	@Override
 	public void deleteStock(Long id) {
 		stockRepository.deleteByIdStock(id);
+		
+	}
+	
+	@Override
+	public Stock removeStock(Stock s) {
+		s.setState(false);
+		return stockRepository.save(s);
 		
 	}
 
