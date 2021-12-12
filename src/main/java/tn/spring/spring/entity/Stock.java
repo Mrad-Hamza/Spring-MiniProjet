@@ -35,13 +35,13 @@ public class Stock implements Serializable {
 	@NonNull
 	private String libelleStock;
 	@NonNull
-	private Date createdDate;
+	public Date createdDate;
 	@NonNull
 	private Date updatedDate;
 	@NonNull
-	private Boolean state;
+	public Boolean state;
 	@NonNull 
-	private int rating;
+	public int rating;
 	@JsonIgnore
 	@OneToMany(mappedBy="stock",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Set<Produit> produits;

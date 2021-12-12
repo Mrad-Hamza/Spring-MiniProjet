@@ -74,6 +74,10 @@ public class StockRestController {
 	@CrossOrigin
 	public Stock updateStock(@PathVariable("id") Long id, @RequestBody Stock s) {
 		s.setIdStock(id);
+		Stock stock = stockService.retrieveStock(id);
+		s.setCreatedDate(stock.createdDate);
+		s.setState(stock.state);
+		s.setRating(stock.rating);
 		return stockService.updateStock(s);
 	}
 
