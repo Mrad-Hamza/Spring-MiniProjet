@@ -40,6 +40,8 @@ public class Stock implements Serializable {
 	private Date updatedDate;
 	@NonNull
 	private Boolean state;
+	@NonNull 
+	private int rating;
 	@JsonIgnore
 	@OneToMany(mappedBy="stock",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Set<Produit> produits;

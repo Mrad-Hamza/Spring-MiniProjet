@@ -39,10 +39,8 @@ public class StockServiceImpl implements IStock{
 	@Override
 	public Stock addStock(Stock s) {
 		s.setState(true);
-		LocalDate localDate = LocalDate.now();
-		s.setCreatedDate(Date.from(localDate.atStartOfDay()
-			      .atZone(ZoneId.systemDefault())
-			      .toInstant()));
+		Date date = new Date();
+		s.setCreatedDate(date);
 		// TODO Auto-generated method stub
 		return stockRepository.save(s);
 	}
@@ -56,13 +54,16 @@ public class StockServiceImpl implements IStock{
 	@Override
 	public Stock removeStock(Stock s) {
 		s.setState(false);
+		Date date = new Date();
+		s.setUpdatedDate(date);
 		return stockRepository.save(s);
 		
 	}
 
 	@Override
 	public Stock updateStock(Stock s) {
-		// TODO Auto-generated method stub
+		Date date = new Date();
+		s.setUpdatedDate(date);
 		return stockRepository.save(s);
 	}
 

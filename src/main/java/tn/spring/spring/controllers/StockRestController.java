@@ -51,8 +51,9 @@ public class StockRestController {
 	}
 
 	//http://localhost:8098/SpringMVC/servlet/get-stock/5	
-	@GetMapping("/get-stock/{id}")
+	@GetMapping("/getStock/{id}")
 	@ResponseBody
+	@CrossOrigin
 	public Stock getStock(@PathVariable("id") Long stockId) {
 		Stock s = stockService.retrieveStock(stockId);
 		return s;
@@ -130,6 +131,7 @@ public class StockRestController {
 
 	}
 
+	
 	//http://localhost:8098/SpringMVC/servlet/search-product/yaourt
 	/*
 	 * @DeleteMapping("search-product/{libelle}")
