@@ -123,9 +123,14 @@ public class StockServiceImpl implements IStock{
 		return stockRepository.save(s);
 	}
 
-	/*
-	 * @Override public Stock addImageStock(String urlImage, Long id) { Stock s =
-	 * stockRepository.findByIdStock(id); s.setUrlImage(urlImage); return
-	 * stockRepository.save(s); }
-	 */
+	@Override
+	public List<Stock> searchAdvancedStocks(String mot) {
+		List<Stock> stocks= stockRepository.searchAdvancedStocks(mot);
+		String msg="";
+		for(Stock stock : stocks) {
+		 System.out.println(msg="quantité " + stock.getQteStock()+"< "+ stock.getQteMin());
+		}
+		return stocks;
+	}
+
 }

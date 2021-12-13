@@ -37,4 +37,6 @@ public interface IStock {
 	List<Stock> searchStockByQte(int qteStock);
 	
 	List<Stock> getStockByStatus();
+	
+	List<Stock> searchAdvancedStocks(String mot);
 }

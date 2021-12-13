@@ -119,6 +119,15 @@ public class StockRestController {
 		return stocks;
 	}
 
+	//http://localhost:8098/SpringMVC/servlet/searchStock/pr	
+	@GetMapping("/searchStock/{mot}")
+	@ResponseBody
+	@CrossOrigin
+	public List<Stock> SearchAdvancedStocks(@PathVariable("mot") String mot) {
+		List<Stock> stocks = stockService.searchAdvancedStocks(mot);
+		return stocks;
+	}
+
 	//http://localhost:8098/SpringMVC/servlet/search-stock-By-Status	
 	@GetMapping("/search-stock-By-Status")
 	@ResponseBody
@@ -153,7 +162,7 @@ public class StockRestController {
 	 * return s; }
 	 */
 
-	
+
 	//http://localhost:8098/SpringMVC/servlet/search-product/yaourt
 	/*
 	 * @DeleteMapping("search-product/{libelle}")

@@ -33,6 +33,6 @@ public interface StockRepository extends JpaRepository<Stock, Long>{
 	@Query(value="select * from stock s where s.state=0", nativeQuery=true)
 	public List<Stock> getPassiveStocks();
 	
-	@Query(value="SELECT s FROM Stock s WHERE s.libelle LIKE %?mot%", nativeQuery=true)
-	public List<Stock> SearchAdvancedStocks(@Param("mot") String mot);
+	@Query(value="SELECT * FROM Stock WHERE libelle_stock LIKE %:mot%", nativeQuery=true)
+	public List<Stock> searchAdvancedStocks(@Param("mot") String mot);
 }
