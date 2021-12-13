@@ -83,14 +83,23 @@ public class StockRestController {
 		return stockService.updateStock(s);
 	}
 
-	// http://localhost:8098/SpringMVC/servlet/remove-stock/5
+	// http://localhost:8098/SpringMVC/servlet/removeStock/5
 	@PutMapping("removeStock/{id}")
 	@ResponseBody
 	@CrossOrigin
-	public Stock removeStock(@PathVariable("id") Long id, @RequestBody Stock s) {
-		s.setIdStock(id);
-		return stockService.removeStock(s);
+	public Stock removeStock(@PathVariable("id") Long id) {
+		Stock stock = stockService.retrieveStock(id);
+		return stockService.removeStock(stock);
 	}
+	
+	// http://localhost:8098/SpringMVC/servlet/removeStock/5
+		@PutMapping("activeStock/{id}")
+		@ResponseBody
+		@CrossOrigin
+		public Stock activeStock(@PathVariable("id") Long id) {
+			Stock stock = stockService.retrieveStock(id);
+			return stockService.activeStock(stock);
+		}
 
 	//http://localhost:8098/SpringMVC/servlet/delete-stock/7
 	@DeleteMapping("deleteStock/{id}")

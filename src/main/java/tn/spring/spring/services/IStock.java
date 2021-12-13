@@ -22,6 +22,8 @@ public interface IStock {
 
 	Stock  removeStock(Stock s);
 	
+	Stock  activeStock(Stock s);
+	
 	Stock updateStock(Stock s);
 	
 	Stock updateStatusStock(Stock s);

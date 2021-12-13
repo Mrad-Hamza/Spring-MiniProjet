@@ -22,7 +22,7 @@ public class StockServiceImpl implements IStock{
 		List<Stock> allStocks = stockRepository.findAll();
 		return allStocks;
 	}
-	
+
 	@Override
 	public List<Stock> retrieveActiveStocks() {
 		List<Stock> allStocks = stockRepository.getActiveStocks();
@@ -48,16 +48,29 @@ public class StockServiceImpl implements IStock{
 	@Override
 	public void deleteStock(Long id) {
 		stockRepository.deleteByIdStock(id);
-		
+
 	}
-	
+
 	@Override
 	public Stock removeStock(Stock s) {
 		s.setState(false);
 		Date date = new Date();
 		s.setUpdatedDate(date);
+		String msg="";
+		System.out.println(msg="quantité " + s.getQteStock()+"< "+ s.getQteMin());
 		return stockRepository.save(s);
-		
+
+	}
+	
+	@Override
+	public Stock activeStock(Stock s) {
+		s.setState(true);
+		Date date = new Date();
+		s.setUpdatedDate(date);
+		String msg="";
+		System.out.println(msg="quantité " + s.getQteStock()+"< "+ s.getQteMin());
+		return stockRepository.save(s);
+
 	}
 
 	@Override
@@ -88,8 +101,8 @@ public class StockServiceImpl implements IStock{
 		List<Stock> stocksEnRouge = stockRepository.getStockByStatus();
 		for(int i =0;i<stocksEnRouge.size();i++) {
 			FinaleMsg = newLine + FinaleMsg+msgDate+newLine+" : le produit "+stocksEnRouge.get(i).getLibelleStock()+ " a un stock de "
-		+stocksEnRouge.get(i).getQteStock()+ "inférieure à la quantité minimale à ne pas dépasser de " + stocksEnRouge.get(i).getQteMin()
-		+newLine;
+					+stocksEnRouge.get(i).getQteStock()+ "inférieure à la quantité minimale à ne pas dépasser de " + stocksEnRouge.get(i).getQteMin()
+					+newLine;
 		}
 		return FinaleMsg;
 	}
@@ -111,7 +124,7 @@ public class StockServiceImpl implements IStock{
 		List<Stock> stockByStatus= stockRepository.getStockByStatus();
 		String msg="";
 		for(Stock stock : stockByStatus) {
-		 System.out.println(msg="quantité " + stock.getQteStock()+"< "+ stock.getQteMin());
+			System.out.println(msg="quantité " + stock.getQteStock()+"< "+ stock.getQteMin());
 		}
 		return stockByStatus;
 	}
@@ -128,7 +141,7 @@ public class StockServiceImpl implements IStock{
 		List<Stock> stocks= stockRepository.searchAdvancedStocks(mot);
 		String msg="";
 		for(Stock stock : stocks) {
-		 System.out.println(msg="quantité " + stock.getQteStock()+"< "+ stock.getQteMin());
+			System.out.println(msg="quantité " + stock.getQteStock()+"< "+ stock.getQteMin());
 		}
 		return stocks;
 	}
