@@ -34,6 +34,12 @@ public class StockServiceImpl implements IStock{
 		List<Stock> allStocks = stockRepository.getPassiveStocks();
 		return allStocks;
 	}
+	
+	@Override
+	public List<Stock> orderStocksByQte() {
+		List<Stock> allStocks = stockRepository.sortStocksByQte();
+		return allStocks;
+	}
 
 	@Override
 	public Stock addStock(Stock s) {
@@ -145,5 +151,6 @@ public class StockServiceImpl implements IStock{
 		}
 		return stocks;
 	}
+
 
 }

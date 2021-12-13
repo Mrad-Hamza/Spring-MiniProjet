@@ -2,10 +2,8 @@ package tn.spring.spring.services;
 
 import java.util.List;
 
-import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import tn.spring.spring.entity.Produit;
 import tn.spring.spring.entity.Stock;
 
 public interface IStock {
@@ -14,6 +12,8 @@ public interface IStock {
 	List<Stock> retrieveActiveStocks();
 	
 	List<Stock> retrievePassiveStocks();
+	
+	List<Stock> orderStocksByQte();
 	
 	Stock addStock(Stock s);
 
