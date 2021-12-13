@@ -1,14 +1,12 @@
 package tn.spring.spring.services;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import tn.spring.spring.entity.Produit;
 import tn.spring.spring.entity.Stock;
 import tn.spring.spring.repository.StockRepository;
 
@@ -40,6 +38,12 @@ public class StockServiceImpl implements IStock{
 		List<Stock> allStocks = stockRepository.sortStocksByQte();
 		return allStocks;
 	}
+	
+	@Override
+	public List<Stock> orderStocksByLibelle() {
+		List<Stock> allStocks = stockRepository.sortStocksByLibelle();
+		return allStocks;
+	}
 
 	@Override
 	public Stock addStock(Stock s) {
@@ -62,8 +66,6 @@ public class StockServiceImpl implements IStock{
 		s.setState(false);
 		Date date = new Date();
 		s.setUpdatedDate(date);
-		String msg="";
-		System.out.println(msg="quantité " + s.getQteStock()+"< "+ s.getQteMin());
 		return stockRepository.save(s);
 
 	}
@@ -73,8 +75,6 @@ public class StockServiceImpl implements IStock{
 		s.setState(true);
 		Date date = new Date();
 		s.setUpdatedDate(date);
-		String msg="";
-		System.out.println(msg="quantité " + s.getQteStock()+"< "+ s.getQteMin());
 		return stockRepository.save(s);
 
 	}
@@ -128,10 +128,6 @@ public class StockServiceImpl implements IStock{
 	@Override
 	public List<Stock> getStockByStatus() {
 		List<Stock> stockByStatus= stockRepository.getStockByStatus();
-		String msg="";
-		for(Stock stock : stockByStatus) {
-			System.out.println(msg="quantité " + stock.getQteStock()+"< "+ stock.getQteMin());
-		}
 		return stockByStatus;
 	}
 
@@ -145,12 +141,9 @@ public class StockServiceImpl implements IStock{
 	@Override
 	public List<Stock> searchAdvancedStocks(String mot) {
 		List<Stock> stocks= stockRepository.searchAdvancedStocks(mot);
-		String msg="";
-		for(Stock stock : stocks) {
-			System.out.println(msg="quantité " + stock.getQteStock()+"< "+ stock.getQteMin());
-		}
 		return stocks;
 	}
+
 
 
 }

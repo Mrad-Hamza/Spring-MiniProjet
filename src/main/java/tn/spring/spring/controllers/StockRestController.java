@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import tn.spring.spring.services.IProduit;
-import tn.spring.spring.entity.Produit;
 import tn.spring.spring.entity.Stock;
 import tn.spring.spring.services.IStock;
 
@@ -58,6 +57,15 @@ public class StockRestController {
 	@CrossOrigin
 	public List<Stock> orderStocksByQte() {
 		List<Stock> listStocks = stockService.orderStocksByQte();
+		return listStocks;
+	}
+
+	// http://localhost:8098/SpringMVC/servlet//orderStocksByLibelle
+	@GetMapping("/orderStocksByLibelle")
+	@ResponseBody
+	@CrossOrigin
+	public List<Stock> orderStocksByLibelle() {
+		List<Stock> listStocks = stockService.orderStocksByLibelle();
 		return listStocks;
 	}
 

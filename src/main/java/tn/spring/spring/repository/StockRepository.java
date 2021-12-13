@@ -35,6 +35,9 @@ public interface StockRepository extends JpaRepository<Stock, Long>{
 	@Query(value="select * from stock s where s.state=1 ORDER by s.qte_stock DESC", nativeQuery=true)
 	public List<Stock> sortStocksByQte();
 	
+	@Query(value="select * from stock s where s.state=1 ORDER by s.libelle_stock DESC", nativeQuery=true)
+	public List<Stock> sortStocksByLibelle();
+	
 	@Query(value="SELECT * FROM Stock WHERE libelle_stock LIKE %:mot% and state=1", nativeQuery=true)
 	public List<Stock> searchAdvancedStocks(@Param("mot") String mot);
 }

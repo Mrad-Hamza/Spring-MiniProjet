@@ -15,6 +15,8 @@ public interface IStock {
 	
 	List<Stock> orderStocksByQte();
 	
+	List<Stock> orderStocksByLibelle();
+	
 	Stock addStock(Stock s);
 
 	@Transactional
