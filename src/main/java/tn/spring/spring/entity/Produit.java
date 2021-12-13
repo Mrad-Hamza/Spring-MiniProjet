@@ -49,11 +49,14 @@ public class Produit implements Serializable {
     @JsonIgnore
 	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	Rayon rayon;
-	
+    
+    @JsonIgnore
 	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	Stock stock;
+    @JsonIgnore
 	@OneToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private DetailProduit detailProduit;
+    @JsonIgnore
 	@OneToMany(mappedBy="facture",cascade=CascadeType.ALL)
 	private List<DetailFacture> detailFacture;
 

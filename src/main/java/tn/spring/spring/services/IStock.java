@@ -2,8 +2,10 @@ package tn.spring.spring.services;
 
 import java.util.List;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import tn.spring.spring.entity.Produit;
 import tn.spring.spring.entity.Stock;
 
 public interface IStock {
@@ -23,6 +25,8 @@ public interface IStock {
 	Stock updateStock(Stock s);
 	
 	Stock updateStatusStock(Stock s);
+	
+	Stock addImageStock(String urlImage, Long id);
 
 	Stock retrieveStock(Long id);
 	

@@ -3,6 +3,7 @@ package tn.spring.spring.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +50,15 @@ public class ProduitRestController {
 		Produit produit = produitService.addProduit(p, p.getRayon().getIdRayon(), p.getStock().getIdStock());
 		return produit;
 	}
+	
+	// http://localhost:8098/SpringMVC/servlet/getProduitsStock/4
+			@GetMapping("/getProduitsStock/{id}")
+			@ResponseBody
+			@CrossOrigin
+			public List<Produit> getProduitsStock(@PathVariable("id") Long stockId) {
+				List<Produit> produits = produitService.getProduitsbyIdStocks(stockId);
+				return produits;
+			}
 	
 	
 	@PutMapping("/affecterToStock/{idP}/{idS}")

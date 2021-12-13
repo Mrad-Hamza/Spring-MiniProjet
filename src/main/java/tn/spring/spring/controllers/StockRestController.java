@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import tn.spring.spring.services.IProduit;
+import tn.spring.spring.entity.Produit;
 import tn.spring.spring.entity.Stock;
 import tn.spring.spring.services.IStock;
 
@@ -134,6 +136,22 @@ public class StockRestController {
 		return stockService.retrieveStatusStock();
 
 	}
+
+	/*
+	 * // http://localhost:8080/SpringMVC/servlet/add-image-rayon
+	 * 
+	 * @PostMapping("/add-image")
+	 * 
+	 * @ResponseBody
+	 * 
+	 * @CrossOrigin public Stock addImageRayon(@RequestParam("urlImage")
+	 * MultipartFile fileUpload,@RequestParam("id") Long id) throws IOException {
+	 * String urlImage = "";
+	 * urlImage="./assets/images/"+fileUpload.getOriginalFilename();
+	 * Files.copy(fileUpload.getInputStream(),this.root.resolve(fileUpload.
+	 * getOriginalFilename())); Stock s = stockService.addImageStock(urlImage,id);
+	 * return s; }
+	 */
 
 	
 	//http://localhost:8098/SpringMVC/servlet/search-product/yaourt

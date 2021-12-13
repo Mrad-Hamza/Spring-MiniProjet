@@ -40,6 +40,12 @@ public class ProduitServiceImpl implements IProduit {
 		produitRepository.save(p);
 		return p;
 	}
+	
+	@Override
+	public List<Produit> getProduitsbyIdStocks(Long idStock) {
+		List<Produit> produits = produitRepository.getProduitsbyIdStocks(idStock);
+		return produits;
+	}
 
 	@Override
 	public void deleteProduit(Long id) {

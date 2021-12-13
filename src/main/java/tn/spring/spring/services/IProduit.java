@@ -21,4 +21,6 @@ public interface IProduit {
 	void affecterProduitToStock(Long idProduit,Long idStock);
 	
 	void affecterProduitToRayon(Long idProduit,Long idRayon);
+	
+	List<Produit> getProduitsbyIdStocks(Long idStock);
 }

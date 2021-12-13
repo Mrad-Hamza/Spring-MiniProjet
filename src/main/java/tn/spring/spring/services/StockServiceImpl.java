@@ -8,10 +8,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tn.spring.spring.entity.Produit;
 import tn.spring.spring.entity.Stock;
-import tn.spring.spring.repository.RayonRepository;
 import tn.spring.spring.repository.StockRepository;
-import java.time.ZoneId;
 
 @Service
 public class StockServiceImpl implements IStock{
@@ -116,4 +115,16 @@ public class StockServiceImpl implements IStock{
 		return stockByStatus;
 	}
 
+	@Override
+	public Stock addImageStock(String urlImage, Long id) {
+		Stock s =stockRepository.findByIdStock(id); 
+		s.setUrlImage(urlImage); 
+		return stockRepository.save(s);
+	}
+
+	/*
+	 * @Override public Stock addImageStock(String urlImage, Long id) { Stock s =
+	 * stockRepository.findByIdStock(id); s.setUrlImage(urlImage); return
+	 * stockRepository.save(s); }
+	 */
 }

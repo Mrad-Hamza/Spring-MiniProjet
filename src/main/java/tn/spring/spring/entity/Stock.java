@@ -42,6 +42,8 @@ public class Stock implements Serializable {
 	public Boolean state;
 	@NonNull 
 	public int rating;
+	@NonNull 
+	public String urlImage;
 	@JsonIgnore
 	@OneToMany(mappedBy="stock",cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Set<Produit> produits;
