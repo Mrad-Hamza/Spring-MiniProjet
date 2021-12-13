@@ -40,6 +40,7 @@ public class StockServiceImpl implements IStock{
 		s.setState(true);
 		Date date = new Date();
 		s.setCreatedDate(date);
+		s.setUrlImage("../../../../assets/img/NS.PNG");
 		// TODO Auto-generated method stub
 		return stockRepository.save(s);
 	}
