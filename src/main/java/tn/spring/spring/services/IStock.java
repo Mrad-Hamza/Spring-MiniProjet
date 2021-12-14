@@ -28,6 +28,8 @@ public interface IStock {
 	
 	Stock updateStock(Stock s);
 	
+	Stock updateRatingStock(Stock s);
+	
 	Stock updateStatusStock(Stock s);
 	
 	Stock addImageStock(String urlImage, Long id);

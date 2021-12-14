@@ -5,12 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import tn.spring.spring.entity.CategorieProduit;
-import tn.spring.spring.entity.DetailFacture;
-import tn.spring.spring.entity.DetailProduit;
-import tn.spring.spring.entity.Facture;
-import tn.spring.spring.entity.Produit;
 import tn.spring.spring.services.IClient;
 import tn.spring.spring.services.IDetailFacture;
 import tn.spring.spring.services.IDetailProduit;

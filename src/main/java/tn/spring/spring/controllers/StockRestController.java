@@ -100,6 +100,15 @@ public class StockRestController {
 		return stockService.updateStock(s);
 	}
 
+	// http://localhost:8098/SpringMVC/servlet/rateStock/5
+	@PutMapping("rateStock/{id}")
+	@ResponseBody
+	@CrossOrigin
+	public Stock rateStock(@PathVariable("id") Long id) {
+		Stock stock = stockService.retrieveStock(id);
+		return stockService.updateRatingStock(stock);
+	}
+
 	// http://localhost:8098/SpringMVC/servlet/removeStock/5
 	@PutMapping("removeStock/{id}")
 	@ResponseBody

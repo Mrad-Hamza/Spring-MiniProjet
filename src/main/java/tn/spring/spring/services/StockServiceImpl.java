@@ -50,7 +50,7 @@ public class StockServiceImpl implements IStock{
 		s.setState(true);
 		Date date = new Date();
 		s.setCreatedDate(date);
-		s.setUrlImage("../../../../assets/img/NS.PNG");
+		//s.setUrlImage("../../../../assets/img/NS.PNG");
 		// TODO Auto-generated method stub
 		return stockRepository.save(s);
 	}
@@ -83,6 +83,14 @@ public class StockServiceImpl implements IStock{
 	public Stock updateStock(Stock s) {
 		Date date = new Date();
 		s.setUpdatedDate(date);
+		return stockRepository.save(s);
+	}
+	
+	@Override
+	public Stock updateRatingStock(Stock s) {
+		Date date = new Date();
+		s.setUpdatedDate(date);
+		s.setRating(s.rating+1);
 		return stockRepository.save(s);
 	}
 
@@ -143,6 +151,8 @@ public class StockServiceImpl implements IStock{
 		List<Stock> stocks= stockRepository.searchAdvancedStocks(mot);
 		return stocks;
 	}
+
+	
 
 
 
