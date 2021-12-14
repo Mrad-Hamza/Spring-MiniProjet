@@ -45,7 +45,6 @@ public class Rayon implements Serializable{
 	
 	@NonNull
 	@OneToMany(mappedBy="rayon",cascade=CascadeType.ALL)
-    @JsonIgnore
 	private List<ImagesRayon> imgs;
 	
 	@NonNull
@@ -55,6 +54,8 @@ public class Rayon implements Serializable{
 	private Date updatedAt;
 	
 	@NonNull
-	private int state;
+	private Date deleteAt;
+	
+	private Boolean state;
 	
 }

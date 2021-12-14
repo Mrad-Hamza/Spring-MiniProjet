@@ -3,6 +3,7 @@ package tn.spring.spring.services;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import tn.spring.spring.entity.ImagesRayon;
 
@@ -20,4 +21,8 @@ public interface IImagesRayon {
 	ImagesRayon updateImageRayon(ImagesRayon r);
 	
 	List<ImagesRayon> getImageRayonParRayon(Long id);
+	
+	
+	 
+	
 }

@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -33,6 +34,8 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class ImagesRayon implements Serializable {
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idRayon")
@@ -40,6 +43,9 @@ public class ImagesRayon implements Serializable {
 	
 	@NonNull
 	String imageRayon;
+	
+	 private String fileType;
+
 	
     @JsonIgnore
 	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
