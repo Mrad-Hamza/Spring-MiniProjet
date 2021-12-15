@@ -46,4 +46,9 @@ public class DetailFactureServiceImpl  implements IDetailFacture{
 		DetailFacture DetailFacture = detailFactureRepository.findById(id).orElse(null);
 		return DetailFacture;
 	}
+	
+	  @Override
+	    public List<DetailFacture> findAll() {
+	        return detailFactureRepository.findAll();
+	    }
 }

@@ -15,7 +15,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -59,14 +61,14 @@ public class Produit implements Serializable {
 	private String libelleProduit;
 	@NonNull
 	private float prixUnitaire;
-	@NonNull
+
 	@ManyToOne
 	private Stock stock;
 	@ManyToOne 
-	@NonNull
+	
 	private Rayon rayon;
+	private String fileName;
 	@OneToMany(cascade=CascadeType.ALL,mappedBy = "produit")
-	@JsonIgnore
 	private Set<DetailFacture> detailFactures;
 	@NonNull
 	

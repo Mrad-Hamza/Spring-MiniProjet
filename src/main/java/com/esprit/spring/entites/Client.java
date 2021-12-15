@@ -38,19 +38,41 @@ public class Client implements Serializable {
 	@Id
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	private long idClient;
+	
 	private String nom;
+	
 	private String prenom;
+	
 	@Temporal(TemporalType.DATE)
 	private Date DateNaissance;
+	
+	private String username;
+	
 	private String email ;
+	
 	private String password;
 	
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "client")
-	@JsonIgnore
 	private Set<Facture> Facture;
+	
 	@Enumerated(EnumType.STRING)
 	private  CategorieClient categorieClient;
+	
 	@Enumerated(EnumType.STRING)
 	private Profession profession;
-
+	
+	private String role;
+	
+	private boolean enabled;
+	private Date add_Client;
+	private Date update_Client;
+	
+	@Override
+	public String toString() {
+		return "Client [idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", DateNaissance="
+				+ DateNaissance + ", email=" + email + ", password=" + password + ", Facture=" + Facture
+				+ ", categorieClient=" + categorieClient + ", profession=" + profession + ", role=" + role
+				+ ", enabled=" + enabled + "]";
+	}
+	
 }

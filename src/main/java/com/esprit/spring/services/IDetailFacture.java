@@ -14,4 +14,6 @@ public interface IDetailFacture {
 	DetailFacture updateDetailFacture(DetailFacture u);
 
 	DetailFacture retrieveDetailFacture(Long id);
+
+	List<DetailFacture> findAll();
 }

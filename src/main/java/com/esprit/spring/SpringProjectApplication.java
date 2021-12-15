@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
 
 import com.esprit.spring.entites.CategorieProduit;
 import com.esprit.spring.entites.DetailProduit;
@@ -20,7 +20,6 @@ import com.esprit.spring.services.IProduit;
 import com.esprit.spring.services.IRayon;
 import com.esprit.spring.services.IStock;
 import com.esprit.spring.services.ProduitServiceImpl;
-@EnableAspectJAutoProxy
 @SpringBootApplication
 public class SpringProjectApplication implements CommandLineRunner {
 	@Autowired
