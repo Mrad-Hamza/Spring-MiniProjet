@@ -46,7 +46,7 @@ public interface IStock {
 	
 	List<Stock> searchAdvancedStocks(String mot);
 	
-	//List<?> getnbreStocksbyDate();
+	List<?> getnbreStocksbyDate();
 	
 	List<?> getnbreStocksbystatus();
 	

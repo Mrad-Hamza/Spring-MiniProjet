@@ -120,11 +120,11 @@ public class StockServiceImpl implements IStock{
 		}
 		return FinaleMsg;
 	}
-	/*@Override
+	@Override
 	public List<?> getnbreStocksbyDate() {
 		// TODO Auto-generated method stub
 		return stockRepository.getnbreStocksbyDate();
-	}*/
+	}
 	
 	@Override
 	public List<?> getnbreStocksbystatus() {

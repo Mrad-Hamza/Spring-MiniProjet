@@ -172,13 +172,13 @@ public class StockRestController {
 		return stocks;
 	}
 
-	/*//http://localhost:8098/SpringMVC/servlet/nbreStockByDate	
+	//http://localhost:8098/SpringMVC/servlet/nbreStockByDate	
 	@GetMapping("/nbreStockByDate")
 	@ResponseBody
 	public List<?> getnbreStocksbyDate() {
 		return stockService.getnbreStocksbyDate();
 
-	}*/
+	}
 
 	//http://localhost:8098/SpringMVC/servlet/nbreStockByStatus	
 	@GetMapping("/nbreStockByStatus")

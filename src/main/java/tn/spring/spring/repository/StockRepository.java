@@ -32,8 +32,8 @@ public interface StockRepository extends JpaRepository<Stock, Long>{
 	@Query(value="select * from stock s where s.state=0", nativeQuery=true)
 	public List<Stock> getPassiveStocks();
 	
-	/*@Query(value="select count(*) as nbre_stock,DATE_FORMAT(created_date,'%d/%m/%Y) as created_date from stock GROUP BY DATE_FORMAT(created_by,'%d/%m/%Y)", nativeQuery=true)
-	public List<?> getnbreStocksbyDate();*/
+	@Query(value="select count(*) as nbre_stock,DATE_FORMAT(created_date,'%d/%m/%Y') as created_date from stock GROUP BY DATE_FORMAT(created_date,'%d/%m/%Y')", nativeQuery=true)
+	public List<?> getnbreStocksbyDate();
 	
 	@Query(value="select count(*) as nbre_stock, state from stock group BY state", nativeQuery=true)
 	public List<?> getnbreStocksbystate();
