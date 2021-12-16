@@ -120,6 +120,17 @@ public class StockServiceImpl implements IStock{
 		}
 		return FinaleMsg;
 	}
+	/*@Override
+	public List<?> getnbreStocksbyDate() {
+		// TODO Auto-generated method stub
+		return stockRepository.getnbreStocksbyDate();
+	}*/
+	
+	@Override
+	public List<?> getnbreStocksbystatus() {
+		// TODO Auto-generated method stub
+		return stockRepository.getnbreStocksbystate();
+	}
 
 	@Override
 	public Stock searchStockByName(String libelle) {
@@ -151,6 +162,9 @@ public class StockServiceImpl implements IStock{
 		List<Stock> stocks= stockRepository.searchAdvancedStocks(mot);
 		return stocks;
 	}
+
+	
+
 
 	
 
