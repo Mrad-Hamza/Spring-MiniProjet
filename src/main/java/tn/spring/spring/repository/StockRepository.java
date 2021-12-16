@@ -38,6 +38,9 @@ public interface StockRepository extends JpaRepository<Stock, Long>{
 	@Query(value="select count(*) as nbre_stock, state from stock group BY state", nativeQuery=true)
 	public List<?> getnbreStocksbystate();
 	
+	@Query(value="select count(*) as nbre_produit , s.libelle_stock from produit p, stock s where s.id_stock=p.stock_id_stock GROUP BY s.id_stock", nativeQuery=true)
+	public List<?> getnbreProduitStocks();
+	
 	@Query(value="select * from stock s where s.state=1 ORDER by s.qte_stock DESC", nativeQuery=true)
 	public List<Stock> sortStocksByQte();
 	

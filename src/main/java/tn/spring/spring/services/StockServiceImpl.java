@@ -131,6 +131,12 @@ public class StockServiceImpl implements IStock{
 		// TODO Auto-generated method stub
 		return stockRepository.getnbreStocksbystate();
 	}
+	
+	@Override
+	public List<?> getnbreProduitStocks() {
+		// TODO Auto-generated method stub
+		return stockRepository.getnbreProduitStocks();
+	}
 
 	@Override
 	public Stock searchStockByName(String libelle) {
@@ -162,6 +168,8 @@ public class StockServiceImpl implements IStock{
 		List<Stock> stocks= stockRepository.searchAdvancedStocks(mot);
 		return stocks;
 	}
+
+	
 
 	
 

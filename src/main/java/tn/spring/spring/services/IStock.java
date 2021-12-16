@@ -49,4 +49,6 @@ public interface IStock {
 	//List<?> getnbreStocksbyDate();
 	
 	List<?> getnbreStocksbystatus();
+	
+	List<?> getnbreProduitStocks();
 }

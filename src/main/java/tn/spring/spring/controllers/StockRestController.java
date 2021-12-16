@@ -177,7 +177,7 @@ public class StockRestController {
 	@ResponseBody
 	public List<?> getnbreStocksbyDate() {
 		return stockService.getnbreStocksbyDate();
-	
+
 	}*/
 
 	//http://localhost:8098/SpringMVC/servlet/nbreStockByStatus	
@@ -185,6 +185,13 @@ public class StockRestController {
 	@ResponseBody
 	public List<?> getnbreStocksbyStatus() {
 		return  stockService.getnbreStocksbystatus();
+	}
+
+	//http://localhost:8098/SpringMVC/servlet/nbreProduitStocks	
+	@GetMapping("/nbreProduitStocks")
+	@ResponseBody
+	public List<?> getnbreProduitStocks() {
+		return  stockService.getnbreProduitStocks();
 	}
 
 	//http://localhost:8098/SpringMVC/servlet/retrieveStatusStock	
